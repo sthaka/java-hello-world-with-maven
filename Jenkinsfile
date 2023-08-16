@@ -3,13 +3,12 @@ pipeline{
 
     tools {
          maven 'maven'
-         jdk 'java'
     }
 
     stages{
         stage('checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/sreenivas449/java-hello-world-with-maven.git']]])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '40fa34c9-455a-481b-8457-1a7236f361ed', url: 'https://github.com/sthaka/java-hello-world-with-maven']])
             }
         }
         stage('build'){
